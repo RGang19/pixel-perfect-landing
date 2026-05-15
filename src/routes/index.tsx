@@ -103,10 +103,17 @@ function Nav() {
 
 function Hero() {
   return (
-    <section className="relative">
+    <section className="relative overflow-hidden">
+      <div
+        className="absolute inset-0 -z-10 bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: `url(${heroDoge})` }}
+        aria-hidden
+      />
+      <div className="absolute inset-0 -z-10 bg-gradient-to-r from-background via-background/85 to-background/30" aria-hidden />
+      <div className="absolute inset-0 -z-10 bg-gradient-to-t from-background via-transparent to-background/40" aria-hidden />
       <div className="hero-glow" />
-      <div className="relative z-10 mx-auto grid max-w-7xl gap-8 px-6 pb-24 pt-4 lg:grid-cols-[1.05fr_1fr] lg:items-center lg:gap-4">
-        <div className="relative">
+      <div className="relative z-10 mx-auto max-w-7xl px-6 pb-32 pt-16 lg:pt-24 min-h-[80vh] flex items-center">
+        <div className="relative max-w-2xl">
           <h1 className="font-doge-title text-7xl leading-[0.95] sm:text-8xl md:text-[7.5rem]">
             DOG<span className="relative">E
               <span className="absolute -top-3 -right-2 text-2xl">🐾</span>
@@ -118,7 +125,7 @@ function Hero() {
           <p className="mt-8 font-pixel-display text-sm text-primary drop-shadow-[2px_2px_0_oklch(0.13_0.04_255)] sm:text-base">
             BREAK FREE. SECURE THE DOGE.
           </p>
-          <p className="font-pixel-body mt-4 max-w-md text-2xl text-foreground/85">
+          <p className="font-pixel-body mt-4 max-w-md text-2xl text-foreground/85 drop-shadow-[2px_2px_0_oklch(0.13_0.04_255)]">
             A wild arcade adventure on DogeOS. Survive the waves, defeat enemies,
             collect coins and escape!
           </p>
@@ -137,48 +144,16 @@ function Hero() {
             </a>
             <a
               href="#"
-              className="btn-pixel inline-flex items-center gap-2 rounded-sm border border-foreground/20 bg-card px-6 py-5 font-pixel-display text-xs text-foreground"
+              className="btn-pixel inline-flex items-center gap-2 rounded-sm border border-foreground/20 bg-card/80 backdrop-blur px-6 py-5 font-pixel-display text-xs text-foreground"
             >
               WATCH TRAILER <Youtube size={16} className="text-destructive" />
             </a>
           </div>
-          <div className="mt-8 inline-flex items-center gap-2 font-pixel-display text-[10px] text-foreground/70">
+          <div className="mt-8 inline-flex items-center gap-2 font-pixel-display text-[10px] text-foreground/80">
             <span className="grid h-7 w-7 place-items-center rounded-full bg-primary text-primary-foreground shadow-[2px_2px_0_oklch(0.13_0.04_255)]">
               🐕
             </span>
             BUILT FOR DOGEOS
-          </div>
-        </div>
-
-        <div className="relative">
-          <div className="absolute -inset-6 -z-10 rounded-full bg-[radial-gradient(circle,oklch(0.7_0.2_220/0.45),transparent_65%)] blur-2xl" />
-          <div className="scanlines relative overflow-hidden rounded-lg">
-            <img
-              src={heroDoge}
-              alt="Doge with sunglasses on a boat firing cannons at enemies under a glowing moon"
-              width={1280}
-              height={1280}
-              className="h-full w-full object-cover"
-            />
-            <div className="absolute bottom-4 right-4 flex items-center gap-2 rounded-sm border-2 border-foreground/30 bg-[oklch(0.13_0.04_255)] px-3 py-2 shadow-[3px_3px_0_oklch(0.85_0.18_85)]">
-              <span className="grid h-7 w-7 place-items-center rounded-full bg-primary font-pixel-display text-[10px] text-primary-foreground">
-                Ð
-              </span>
-              <div className="leading-none">
-                <div className="font-pixel-display text-[7px] text-foreground/60">
-                  COMING TO
-                </div>
-                <div className="font-pixel-display text-xs text-foreground">
-                  DogeOS
-                </div>
-              </div>
-            </div>
-            <div className="floaty absolute -left-4 top-1/3 grid h-14 w-14 place-items-center rounded-full border-2 border-foreground/30 bg-primary font-pixel-display text-xl text-primary-foreground shadow-[4px_4px_0_oklch(0.13_0.04_255)]">
-              Ð
-            </div>
-            <div className="floaty absolute right-6 top-6 grid h-10 w-10 place-items-center rounded-full border-2 border-foreground/30 bg-primary font-pixel-display text-sm text-primary-foreground shadow-[3px_3px_0_oklch(0.13_0.04_255)]" style={{ animationDelay: "1.2s" }}>
-              Ð
-            </div>
           </div>
         </div>
       </div>
