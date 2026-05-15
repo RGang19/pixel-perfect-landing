@@ -6,6 +6,8 @@ import cardEnemies from "@/assets/card-enemies.jpg";
 import cardCoins from "@/assets/card-coins.jpg";
 import cardDogeos from "@/assets/card-dogeos.jpg";
 import ctaDoge from "@/assets/cta-doge.jpg";
+import aiCompanion from "@/assets/ai-companion.jpg";
+import roboD from "@/assets/robo-d.png";
 import {
   Play,
   Youtube,
@@ -19,7 +21,16 @@ import {
   Globe,
   Users,
   Rocket,
+  Flame,
+  Shield,
+  Wrench,
+  Sparkles,
+  Crosshair,
+  Plus,
+  Magnet,
+  Heart,
 } from "lucide-react";
+
 
 export const Route = createFileRoute("/")({
   head: () => ({
