@@ -1,7 +1,7 @@
 @import "tailwindcss" source(none);
 @source "../src";
 @import "tw-animate-css";
-@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&family=Silkscreen:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&family=Silkscreen:wght@400;700&family=Rubik+Mono+One&family=Bungee&family=Bungee+Shade&display=swap");
 
 @custom-variant dark (&:is(.dark *));
 
@@ -204,5 +204,61 @@
     background: repeating-linear-gradient(0deg, transparent 0 2px, oklch(0 0 0 / 0.18) 2px 3px);
     pointer-events: none;
     mix-blend-mode: overlay;
+  }
+
+  .font-doge-title {
+    font-family: "Bungee", "Press Start 2P", monospace;
+    font-weight: 400;
+    letter-spacing: 0.04em;
+    color: var(--doge-yellow);
+    text-shadow:
+      -3px 0 0 var(--doge-deep), 3px 0 0 var(--doge-deep),
+      0 -3px 0 var(--doge-deep), 0 3px 0 var(--doge-deep),
+      -3px -3px 0 var(--doge-deep), 3px -3px 0 var(--doge-deep),
+      -3px 3px 0 var(--doge-deep), 3px 3px 0 var(--doge-deep),
+      6px 6px 0 oklch(0.55 0.18 60),
+      8px 8px 0 var(--doge-deep);
+    transform: rotate(-2deg);
+    display: inline-block;
+  }
+
+  .font-doge-escape {
+    font-family: "Bungee", "Press Start 2P", monospace;
+    font-weight: 400;
+    color: oklch(0.98 0.01 90);
+    letter-spacing: 0.06em;
+    text-shadow:
+      -2px 0 0 var(--doge-deep), 2px 0 0 var(--doge-deep),
+      0 -2px 0 var(--doge-deep), 0 2px 0 var(--doge-deep),
+      4px 4px 0 var(--doge-yellow),
+      6px 6px 0 var(--doge-deep);
+    transform: rotate(-1deg);
+    display: inline-block;
+  }
+
+  .hero-glow {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(circle at 70% 35%, oklch(0.6 0.18 220 / 0.55), transparent 55%),
+      radial-gradient(circle at 30% 70%, oklch(0.5 0.2 280 / 0.35), transparent 55%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .floaty {
+    animation: floaty 4s ease-in-out infinite;
+  }
+  @keyframes floaty {
+    0%, 100% { transform: translateY(0) rotate(-6deg); }
+    50% { transform: translateY(-8px) rotate(6deg); }
+  }
+
+  .pulse-ring {
+    animation: pulseRing 2.4s ease-out infinite;
+  }
+  @keyframes pulseRing {
+    0% { box-shadow: 0 0 0 0 oklch(0.85 0.18 85 / 0.6); }
+    100% { box-shadow: 0 0 0 24px oklch(0.85 0.18 85 / 0); }
   }
 }
