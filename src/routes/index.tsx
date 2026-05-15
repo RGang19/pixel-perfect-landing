@@ -447,6 +447,143 @@ function Footer() {
   );
 }
 
+const stats = [
+  { label: "FIREPOWER", filled: 5, total: 6, icon: Flame, color: "oklch(0.7 0.22 45)" },
+  { label: "DEFENSE", filled: 4, total: 6, icon: Shield, color: "oklch(0.7 0.18 230)" },
+  { label: "UTILITY", filled: 4, total: 6, icon: Wrench, color: "oklch(0.72 0.2 145)" },
+  { label: "LUCK", filled: 3, total: 6, icon: Sparkles, color: "oklch(0.85 0.18 85)" },
+];
+
+const abilities = [
+  { name: "TARGET LOCK", desc: "Highlights threats and prioritizes enemies.", icon: Crosshair, color: "oklch(0.7 0.18 230)" },
+  { name: "REPAIR DRONE", desc: "Restores hull HP over time during battle.", icon: Plus, color: "oklch(0.72 0.2 145)" },
+  { name: "COIN MAGNET", desc: "Automatically collects coins nearby.", icon: Magnet, color: "oklch(0.65 0.22 310)" },
+];
+
+const evolution = ["BASIC", "LEARNER", "ASSISTANT", "VETERAN", "LEGENDARY"];
+
+function AICompanion() {
+  return (
+    <section id="companion" className="relative mx-auto max-w-7xl px-6 py-16">
+      <div className="mb-10 text-center">
+        <h2 className="font-doge-title text-5xl sm:text-6xl md:text-7xl">AI COMPANION</h2>
+        <p className="font-pixel-display mt-5 text-xs tracking-widest text-foreground/80 sm:text-sm">
+          YOUR LOYAL CO-PILOT. ALWAYS BY YOUR SIDE. <span className="text-primary">🐾</span>
+        </p>
+      </div>
+
+      <div className="pixel-card rounded-md p-4 sm:p-6">
+        <div className="grid gap-6 lg:grid-cols-2">
+          <div className="scanlines relative overflow-hidden rounded-sm border-2 border-primary/40">
+            <img
+              src={aiCompanion}
+              alt="Doge with AI companion robot in a boat"
+              width={1024}
+              height={1024}
+              loading="lazy"
+              className="h-full w-full object-cover"
+            />
+            <div className="absolute bottom-3 left-3 flex max-w-[78%] items-center gap-3 rounded-sm border-2 border-[oklch(0.7_0.18_230)] bg-[oklch(0.13_0.04_255_/_0.85)] px-3 py-2 shadow-[3px_3px_0_oklch(0.13_0.04_255)]">
+              <img src={roboD} alt="Robo-D" width={40} height={40} className="h-10 w-10" />
+              <p className="font-pixel-display text-[8px] leading-relaxed text-[oklch(0.78_0.13_220)]">
+                "BARK DETECTED. THREATS NEUTRALIZED.<br />
+                VICTORY PROBABILITY: 99.99% WOOF!"
+              </p>
+            </div>
+          </div>
+
+          <div className="rounded-sm border-2 border-primary/40 bg-[oklch(0.14_0.04_255)] p-5 shadow-[4px_4px_0_oklch(0.1_0.04_255)]">
+            <div className="-mt-9 mb-4 flex justify-center">
+              <div className="btn-pixel inline-flex items-center gap-2 rounded-sm bg-primary px-5 py-2 font-pixel-display text-[11px] text-primary-foreground">
+                COMPANION: ROBO-D 🐾
+              </div>
+            </div>
+            <p className="font-pixel-body text-lg leading-snug text-foreground/85">
+              Robo-D is your AI copilot, optimized for survival. It analyzes, assists, and evolves with every run.
+            </p>
+
+            <div className="my-5 h-[2px] w-full bg-primary/30" />
+
+            <ul className="space-y-3">
+              {stats.map(({ label, filled, total, icon: Icon, color }) => (
+                <li key={label} className="flex items-center gap-3">
+                  <span className="grid h-7 w-7 place-items-center rounded-full border-2" style={{ borderColor: color, color }}>
+                    <Icon size={14} />
+                  </span>
+                  <span className="font-pixel-display flex-1 text-[10px] tracking-widest text-foreground">{label}</span>
+                  <span className="flex gap-1">
+                    {Array.from({ length: total }).map((_, i) => (
+                      <span key={i} className="h-4 w-4 border-2" style={{ borderColor: color, background: i < filled ? color : "transparent" }} />
+                    ))}
+                  </span>
+                </li>
+              ))}
+            </ul>
+
+            <div className="my-5 h-[2px] w-full bg-primary/30" />
+
+            <p className="text-center font-pixel-display text-[10px] tracking-widest text-primary">
+              🐾 ACTIVE ABILITIES 🐾
+            </p>
+
+            <div className="mt-4 grid grid-cols-3 gap-3">
+              {abilities.map(({ name, desc, icon: Icon, color }) => (
+                <div key={name} className="rounded-sm border-2 bg-[oklch(0.18_0.05_255)] p-3 text-center" style={{ borderColor: color }}>
+                  <span className="mx-auto grid h-10 w-10 place-items-center rounded-full border-2" style={{ borderColor: color, color }}>
+                    <Icon size={18} />
+                  </span>
+                  <p className="font-pixel-display mt-3 text-[8px]" style={{ color }}>{name}</p>
+                  <p className="font-pixel-body mt-2 text-sm leading-tight text-foreground/70">{desc}</p>
+                </div>
+              ))}
+            </div>
+
+            <p className="mt-5 text-center font-pixel-display text-[9px] tracking-widest text-primary">
+              EVOLVE TO UNLOCK STRONGER ABILITIES!
+            </p>
+          </div>
+        </div>
+
+        <div className="mt-6 grid gap-6 lg:grid-cols-[1.5fr_1fr]">
+          <div className="rounded-sm border-2 border-primary/40 bg-[oklch(0.14_0.04_255)] p-4">
+            <p className="text-center font-pixel-display text-[10px] tracking-widest text-primary">EVOLUTION PROGRESSION</p>
+            <div className="mt-4 flex items-end justify-between gap-2">
+              {evolution.map((lvl, i) => (
+                <div key={lvl} className="flex flex-1 items-end gap-2">
+                  <div className="flex flex-1 flex-col items-center">
+                    <div className="grid h-12 w-12 place-items-center rounded-sm border-2" style={{ borderColor: i === evolution.length - 1 ? "oklch(0.85 0.18 85)" : "oklch(0.7 0.18 230)", background: i === evolution.length - 1 ? "oklch(0.85 0.18 85 / 0.15)" : "oklch(0.18 0.05 255)" }}>
+                      <img src={roboD} alt="" className="h-9 w-9" />
+                    </div>
+                    <p className="font-pixel-display mt-2 text-[8px] text-foreground/60">LV. {i + 1}</p>
+                    <p className="font-pixel-display mt-1 text-[8px] text-foreground">{lvl}</p>
+                  </div>
+                  {i < evolution.length - 1 && <ArrowRight size={14} className="mb-8 text-primary" />}
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="rounded-sm border-2 border-[oklch(0.65_0.22_310)] bg-[oklch(0.18_0.05_280_/_0.4)] p-4">
+            <div className="flex items-start gap-3">
+              <span className="grid h-12 w-12 place-items-center rounded-sm border-2 border-[oklch(0.65_0.22_310)] text-[oklch(0.75_0.22_310)]">
+                <Heart size={20} fill="currentColor" />
+              </span>
+              <div className="flex-1">
+                <p className="font-pixel-display text-[11px] tracking-widest text-[oklch(0.78_0.2_310)]">BOND BONUS</p>
+                <p className="font-pixel-body mt-2 text-base leading-snug text-foreground/80">The stronger your bond, the stronger we become.</p>
+                <div className="mt-3 h-2 w-full overflow-hidden rounded-sm border border-[oklch(0.65_0.22_310)]">
+                  <div className="h-full w-[87%] bg-[oklch(0.7_0.22_310)]" />
+                </div>
+                <p className="mt-1 text-right font-pixel-display text-[9px] text-[oklch(0.78_0.2_310)]">87%</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function Index() {
   return (
     <div className="min-h-screen overflow-hidden">
@@ -455,6 +592,7 @@ function Index() {
       <Marquee />
       <Teaser />
       <Features />
+      <AICompanion />
       <Roadmap />
       <Footer />
     </div>
